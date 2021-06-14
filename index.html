@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <!--This is where you put the leaflet link so you code it it javscript-->
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
     <style>
+    /*When i made the map into an id i used css to position the map on the website. Without this the map would not show up.*/
       #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
     </style>
   </head>
   <body>
+    <!--I gave the map and id so i can use css to position it and set a zoom to it when it launched.-->
     <div id="map"></div>
+    <!--This is where i got my map template from, also known as the map layer.-->
     <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></p>
     <script>
+    // This is where I set the view of the map when the site loads uup meaning that i put the longitude and that latitude so when i launch the site it automatically zooms to the U.S
       var map = L.map('map').setView([43.000000,-75.000000],4);
       L.tileLayer('https://api.maptiler.com/maps/outdoor/{z}/{x}/{y}.png?key=wjpPiRtfduwt6QJwWmDr',{
-        tileSize: 512,
+        tileSize: 512, // sets the size of the tile layer (the map)
         zoomOffset: -1,
         minZoom: 1,
         attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
         crossOrigin: true
       }).addTo(map);
-
-    var newYork = L.circle([43.31363266377855, -75.31701667634705], {
+// Now I just make a varible of each state and make a red circle which is placed on the coordinates of the state. When you click on the circle it tells you the cases and deaths in the state as on May 10th 2021
+    var newYork = L.circle([43.31363266377855, -75.31701667634705], {   // By going onto google maps I can see the coordiantes of any location and paste tehm into these brackets so the red circle is position right on the state in the map.
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
-        radius: 130000
+        radius: 130000 // the radius shows how big the circle is based on the size of the state.
     }).addTo(map);
-    newYork.bindPopup("Cases Confirmed : 2,072,264 <br> Deaths: 52,192");
+    newYork.bindPopup("Cases Confirmed : 2,072,264 <br> Deaths: 52,192"); //By downloading a csv file that contains data of covid cases and deaths for every U.S state and territories I put the cases and deaths when the circle is clicked on.
 
     var alabama = L.circle([33.045736766363696, -86.66082081535518], {
         color: 'red',
@@ -49,7 +54,7 @@
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
-        radius: 130000
+        radius: 190000
     }).addTo(map);
     arizona.bindPopup("Cases Confirmed : 869,472 <br> Deaths: 17,409");
 
@@ -65,7 +70,7 @@
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
-        radius: 150000
+        radius: 170000
     }).addTo(map);
     california.bindPopup("Cases Confirmed : 3,760,251 <br> Deaths: 62,331");
 
@@ -101,6 +106,367 @@
         radius: 10000
     }).addTo(map);
     districtOfColumbia.bindPopup("Cases Confirmed : 48,195 <br> Deaths: 1,110");
+
+     var florida = L.circle([27.8042850358864, -81.29379034121085], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 120000
+    }).addTo(map);
+    florida.bindPopup("Cases Confirmed : 2,272,094 <br> Deaths: 35,782");
+
+    var georgia = L.circle([32.65905558580294, -83.33043386447395], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 120000
+    }).addTo(map);
+    georgia.bindPopup("Cases Confirmed : 1,085,897 <br> Deaths: 19,731");
+
+     var guam = L.circle([13.371516150581298, 144.7061153055286], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 8000
+    }).addTo(map);
+    guam.bindPopup("Cases Confirmed : 9,012 <br> Deaths: 140");
+
+     var hawaii = L.circle([20.945918410044325, -156.86576351540185], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 80000
+    }).addTo(map);
+    hawaii.bindPopup("Cases Confirmed : 33,665 <br> Deaths: 485");
+
+      var idaho = L.circle([43.99836111808185, -114.63840702060773], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150000
+    }).addTo(map);
+    idaho.bindPopup("Cases Confirmed : 189,199 <br> Deaths: 2,063");
+
+     var illinois = L.circle([40.26590342998348, -89.15621035167351], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 110000
+    }).addTo(map);
+    illinois.bindPopup("Cases Confirmed : 1,360,247 <br> Deaths: 24,590");
+
+     var indiana = L.circle([40.28607783855807, -86.22641420443418], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 110000
+    }).addTo(map);
+    indiana.bindPopup("Cases Confirmed : 733,631 <br> Deaths: 13,419");
+
+    var iowa = L.circle([42.23065455418736, -93.59879848259472], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 130000
+    }).addTo(map);
+    iowa.bindPopup("Cases Confirmed : 367,909 <br> Deaths: 5,985");
+
+     var kansas = L.circle([38.35728152565149, -98.42325118130393], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 130000
+    }).addTo(map);
+    kansas.bindPopup("Cases Confirmed : 367,909 <br> Deaths: 5,985");
+
+     var kentucky = L.circle([37.81963914813936, -84.46222434521627], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    kentucky.bindPopup("Cases Confirmed : 452,284 <br> Deaths: 6699");
+
+     var louisiana = L.circle([30.81070480114969, -92.70221877752489], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    louisiana.bindPopup("Cases Confirmed : 462,868 <br> Deaths: 10,438");
+
+     var maine = L.circle([45.31105811649809, -69.22162616104262], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 80000
+    }).addTo(map);
+    maine.bindPopup("Cases Confirmed : 64,208 <br> Deaths: 795");
+
+     var maryland = L.circle([38.64682498622996, -76.82023218426026], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 20000
+    }).addTo(map);
+    maryland.bindPopup("Cases Confirmed : 64,208 <br> Deaths: 795");
+
+     var massachusetts = L.circle([42.38765483792211, -72.23827005785806], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 35000
+    }).addTo(map);
+    massachusetts.bindPopup("Cases Confirmed : 697,872 <br> Deaths: 17,698");
+
+    var michigan = L.circle([43.41468453940858, -84.70789873053698], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    michigan.bindPopup("Cases Confirmed : 963,056 <br> Deaths: 19,398");
+
+    var minnesota = L.circle([45.7372417748945, -94.49621837609413], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    minnesota.bindPopup("Cases Confirmed : 589,045 <br> Deaths: 7,324");
+
+    var mississippi = L.circle([33.29318669529026, -89.6703674235921], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 120000
+    }).addTo(map);
+    mississippi.bindPopup("Cases Confirmed : 313,675 <br> Deaths: 7,234");
+
+    var missouri = L.circle([38.602026533405876, -92.57510366928905], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150000
+    }).addTo(map);
+    missouri.bindPopup("Cases Confirmed : 606,513 <br> Deaths: 9,337");
+
+    var montana = L.circle([46.991988913614925, -109.61045562313265], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 190000
+    }).addTo(map);
+    montana.bindPopup("Cases Confirmed : 110,051 <br> Deaths: 1,592");
+
+    var nebraska = L.circle([41.59800316302353, -99.33292862721503], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150000
+    }).addTo(map);
+    montana.bindPopup("Cases Confirmed : 221,500 <br> Deaths: 2,374");
+
+    var nevada = L.circle([39.752359964488946, -116.94071130404402], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 210000
+    }).addTo(map);
+    nevada.bindPopup("Cases Confirmed : 318,780 <br> Deaths: 5,506");
+
+    var newHampshire = L.circle([43.54514908576584, -71.62502263387285], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 50000
+    }).addTo(map);
+    newHampshire.bindPopup("Cases Confirmed : 96,801 <br> Deaths: 1,315");
+
+    var newJersey = L.circle([39.68295612808782, -74.84690427113215], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 30000
+    }).addTo(map);
+    newJersey.bindPopup("Cases Confirmed : 1,008,046 <br> Deaths: 25,809");
+
+    var newMexico = L.circle([34.596115024652036, -106.11168086584757], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 240000
+    }).addTo(map);
+    newMexico.bindPopup("Cases Confirmed : 199,901 <br> Deaths: 4,108");
+
+      var northCarolina = L.circle([35.55721905100691, -78.86180407365013], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    northCarolina.bindPopup("Cases Confirmed : 984,647 <br> Deaths: 12,814");
+
+    var northernMarianaIslands = L.circle([16.336004304300676, 145.67249442000093], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 70000
+    }).addTo(map);
+    northernMarianaIslands.bindPopup("Cases Confirmed : 170 <br> Deaths: 2");
+
+    var ohio = L.circle([40.04754013269559, -82.93800420502895], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 120000
+    }).addTo(map);
+    ohio.bindPopup("Cases Confirmed : 450,315 <br> Deaths: 6,832");
+
+    var oregon = L.circle([44.08404223553754, -120.4151692061521], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 190000
+    }).addTo(map);
+    oregon.bindPopup("Cases Confirmed : 191,837 <br> Deaths: 2,549");
+
+     var pennsylvania = L.circle([40.884546409184786, -77.63424201074574], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 120000
+    }).addTo(map);
+    pennsylvania.bindPopup("Cases Confirmed : 1,179,648 <br> Deaths: 26,597");
+
+    var puertoRico = L.circle([18.244064828996898, -66.4837258749508], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 60000
+    }).addTo(map);
+    puertoRico.bindPopup("Cases Confirmed : 169,158 <br> Deaths: 2,374");
+
+    var rhodeIsland = L.circle([41.65280167695194, -71.63582999942206], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 12000
+    }).addTo(map);
+    rhodeIsland.bindPopup("Cases Confirmed : 149,948 <br> Deaths: 2,690");
+
+
+     var southCarolina = L.circle([33.82969557116746, -80.5197955913961], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    southCarolina.bindPopup("Cases Confirmed : 584,932 <br> Deaths: 9,596");
+
+    var southDakota = L.circle([44.514426699257086, -100.39040682994398], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150000
+    }).addTo(map);
+    southDakota.bindPopup("Cases Confirmed : 123,310 <br> Deaths: 1981");
+
+     var northDakota = L.circle([47.57823351929252, -100.5340126640076], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150000
+    }).addTo(map);
+    northDakota.bindPopup("Cases Confirmed : 108,556 <br> Deaths: 1,529");
+
+    var tennessee = L.circle([35.7516969080301, -86.71195113538464], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    tennessee.bindPopup("Cases Confirmed : 839,439 <br> Deaths: 12,178 ");
+
+     var texas = L.circle([31.47816349769662, -99.09795432337145], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 280000
+    }).addTo(map);
+    texas.bindPopup("Cases Confirmed : 2,912,414 <br> Deaths: 50,828 ");
+
+    var utah = L.circle([39.25373426237737, -111.7352677209696], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 170000
+    }).addTo(map);
+    utah.bindPopup("Cases Confirmed : 400,624 <br> Deaths: 2,225 ");
+
+    var oklahoma = L.circle([35.54748329591672, -97.30288139757626], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 140000
+    }).addTo(map);
+    oklahoma.bindPopup("Cases Confirmed : 450,315 <br> Deaths: 6,832 ");
+
+     var vermont = L.circle([44.099002311129496, -72.8015581191481], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 40000
+    }).addTo(map);
+    vermont.bindPopup("Cases Confirmed : 23,541 <br> Deaths: 249 ");
+
+    var virginIslands = L.circle([17.73857277349265, -64.77305161429747], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 10000
+    }).addTo(map);
+    virginIslands.bindPopup("Cases Confirmed : 3,233 <br> Deaths: 27 ");
+
+    var virginia = L.circle([37.56283497385123, -78.74384566523338], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100000
+    }).addTo(map);
+    virginia.bindPopup("Cases Confirmed : 666,986 <br> Deaths: 10,902 ");
+
+    var washington = L.circle([47.40321100516654, -120.23585827440036], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150000
+    }).addTo(map);
+    washington.bindPopup("Cases Confirmed : 417,677 <br> Deaths: 5,630 ");
+
+    var westVirginia = L.circle([38.51798957710593, -81.03314399434595], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 80000
+    }).addTo(map);
+    westVirginia.bindPopup("Cases Confirmed : 156,617 <br> Deaths: 2,729 ");
+
+    var wisconsin = L.circle([44.620379204149394, -89.54681213039177], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 140000
+    }).addTo(map);
+    wisconsin.bindPopup("Cases Confirmed : 666,613 <br> Deaths: 7,652 ");
+
+    var wyoming = L.circle([43.20961321096607, -107.7648651240434], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 190000
+    }).addTo(map);
+    wyoming.bindPopup("Cases Confirmed : 58,764 <br> Deaths: 710 ");
     </script>
   </body>
 </html>
